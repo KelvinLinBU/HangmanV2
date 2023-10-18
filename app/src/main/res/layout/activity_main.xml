@@ -10,7 +10,7 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginTop="308dp"
-        android:text="TextView"
+        android:text="-----"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/letter6"
@@ -21,7 +21,7 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginTop="308dp"
-        android:text="TextView"
+        android:text="-----"
         app:layout_constraintStart_toEndOf="@+id/letter"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,7 @@
         android:layout_height="65dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="308dp"
-        android:text="TextView"
+        android:text="-----"
         app:layout_constraintStart_toEndOf="@+id/letter3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -299,7 +299,7 @@
         android:layout_height="65dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="308dp"
-        android:text="TextView"
+        android:text="-----"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -308,7 +308,7 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginTop="308dp"
-        android:text="TextView"
+        android:text="-----"
         app:layout_constraintStart_toEndOf="@+id/letter5"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -317,7 +317,7 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginTop="308dp"
-        android:text="TextView"
+        android:text="-----"
         app:layout_constraintStart_toEndOf="@+id/letter4"
         app:layout_constraintTop_toTopOf="parent" />
 

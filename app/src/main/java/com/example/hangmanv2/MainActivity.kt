@@ -118,7 +118,7 @@ class MainActivity : ComponentActivity() {
                         val resId = resources.getIdentifier(buttonId, "id", packageName)
                         if (resId != 0) { // Check if the resource exists
                             val button = findViewById<Button>(resId)
-                            if (button.isClickable){
+                            if (button.isClickable == true && !(start.toString() in wordtoguess)){
                                 if(inside_counter <= (to_remove / 2 )){
                                 button.isClickable = false
                                 button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
@@ -139,12 +139,75 @@ class MainActivity : ComponentActivity() {
 
 
             else if(hint_count == 2){
+                val vowels = arrayOf("A", "E", "I", "O", "U")
                 if (death_counter < 5){
-                    death_counter += 1 //not implemented yet
+                    for (letter in vowels){
+                    for (i in 0..wordtoguess.length - 1) {
+                        if (wordtoguess[i].toString() == letter) {
+                            if (i == 0) {
+                                firstletter.text = letter
+                                success_count += 1
+                            }
+                            if (i == 1) {
+                                secondletter.text = letter
+                                success_count += 1
+                            }
+                            if (i == 2) {
+                                thirdletter.text = letter
+                                success_count += 1
+                            }
+                            if (i == 3) {
+                                fourthletter.text = letter
+                                success_count += 1
+                            }
+                            if (i == 4) {
+                                fifthletter.text = letter
+                                success_count += 1
+                            }
+                            if (i == 5) {
+                                sixthletter.text = letter
+                                success_count += 1
+                            }
+                        }
+                    }
+                    }
+                    if(success_count > 4){
+                        Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) { // Check if the resource exists
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
+                    }
+                    death_counter += 1
+                    hint_count += 1
+                    if(death_counter == 1){
+                        findViewById<ImageView>(R.id.hangmanpic).setImageResource(R.mipmap.hangman2_foreground)
+                    }
+                    if(death_counter == 2){
+                        findViewById<ImageView>(R.id.hangmanpic).setImageResource(R.mipmap.hangman3_foreground)
+                    }
+                    if(death_counter == 3){
+                        findViewById<ImageView>(R.id.hangmanpic).setImageResource(R.mipmap.hangmanface_foreground)
+                    }
+                    if(death_counter == 4){
+                        findViewById<ImageView>(R.id.hangmanpic).setImageResource(R.mipmap.hangman4_foreground)
+                    }
+                    if(death_counter == 5){
+                        findViewById<ImageView>(R.id.hangmanpic).setImageResource(R.mipmap.hangman5_foreground)
+                    }
                 }
                 else{
                     Toast.makeText(this, "HINT NOT AVAILABLE", Toast.LENGTH_SHORT).show()
                 }
+            }
+            else{
+                Toast.makeText(this, "NO MORE HINTS", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -182,6 +245,16 @@ class MainActivity : ComponentActivity() {
                 }
                 if(success_count > 4){
                     Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                    for (start in 'A'..'Z') {
+                        val buttonId = "${start}button"
+                        val resId = resources.getIdentifier(buttonId, "id", packageName)
+                        if (resId != 0) { // Check if the resource exists
+                            val button = findViewById<Button>(resId)
+                            button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                            button.isClickable = false
+                        }
+
+                    }
                 }
             }
             else{
@@ -209,7 +282,7 @@ class MainActivity : ComponentActivity() {
                     for (start in 'A'..'Z') {
                         val buttonId = "${start}button"
                         val resId = resources.getIdentifier(buttonId, "id", packageName)
-                        if (resId != 0) { // Check if the resource exists
+                        if (resId != 0) {
                             val button = findViewById<Button>(resId)
                             button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
                             button.isClickable = false
@@ -257,6 +330,16 @@ class MainActivity : ComponentActivity() {
                 }
                 if(success_count > 4){
                     Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                    for (start in 'A'..'Z') {
+                        val buttonId = "${start}button"
+                        val resId = resources.getIdentifier(buttonId, "id", packageName)
+                        if (resId != 0) {
+                            val button = findViewById<Button>(resId)
+                            button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                            button.isClickable = false
+                        }
+
+                    }
                 }
             }
             else{
@@ -332,6 +415,16 @@ class MainActivity : ComponentActivity() {
                 }
                 if(success_count > 4){
                     Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                    for (start in 'A'..'Z') {
+                        val buttonId = "${start}button"
+                        val resId = resources.getIdentifier(buttonId, "id", packageName)
+                        if (resId != 0) { // Check if the resource exists
+                            val button = findViewById<Button>(resId)
+                            button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                            button.isClickable = false
+                        }
+
+                    }
                 }
             }
             else{
@@ -407,6 +500,16 @@ class MainActivity : ComponentActivity() {
                 }
                 if(success_count > 4){
                     Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                    for (start in 'A'..'Z') {
+                        val buttonId = "${start}button"
+                        val resId = resources.getIdentifier(buttonId, "id", packageName)
+                        if (resId != 0) {
+                            val button = findViewById<Button>(resId)
+                            button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                            button.isClickable = false
+                        }
+
+                    }
                 }
             }
             else{
@@ -482,6 +585,16 @@ class MainActivity : ComponentActivity() {
                 }
                 if(success_count > 4){
                     Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                    for (start in 'A'..'Z') {
+                        val buttonId = "${start}button"
+                        val resId = resources.getIdentifier(buttonId, "id", packageName)
+                        if (resId != 0) {
+                            val button = findViewById<Button>(resId)
+                            button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                            button.isClickable = false
+                        }
+
+                    }
                 }
             }
             else{
@@ -557,6 +670,16 @@ class MainActivity : ComponentActivity() {
                 }
                 if(success_count > 4){
                     Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                    for (start in 'A'..'Z') {
+                        val buttonId = "${start}button"
+                        val resId = resources.getIdentifier(buttonId, "id", packageName)
+                        if (resId != 0) {
+                            val button = findViewById<Button>(resId)
+                            button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                            button.isClickable = false
+                        }
+
+                    }
                 }
             }
                 else{
@@ -633,6 +756,16 @@ class MainActivity : ComponentActivity() {
                 }
                 if(success_count > 4){
                     Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                    for (start in 'A'..'Z') {
+                        val buttonId = "${start}button"
+                        val resId = resources.getIdentifier(buttonId, "id", packageName)
+                        if (resId != 0) {
+                            val button = findViewById<Button>(resId)
+                            button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                            button.isClickable = false
+                        }
+
+                    }
                 }
                 }
             else {
@@ -708,6 +841,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 }
 
@@ -784,6 +927,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 }
                 else {
@@ -859,6 +1012,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -933,6 +1096,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1007,6 +1180,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1081,6 +1264,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1155,6 +1348,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1229,6 +1432,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1303,6 +1516,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1377,6 +1600,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1451,6 +1684,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1525,6 +1768,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1599,6 +1852,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1673,6 +1936,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1747,6 +2020,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1821,6 +2104,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1895,6 +2188,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -1969,6 +2272,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
@@ -2043,6 +2356,16 @@ class MainActivity : ComponentActivity() {
                     }
                     if(success_count > 4){
                         Toast.makeText(this,"YOU WON!", Toast.LENGTH_LONG).show()
+                        for (start in 'A'..'Z') {
+                            val buttonId = "${start}button"
+                            val resId = resources.getIdentifier(buttonId, "id", packageName)
+                            if (resId != 0) {
+                                val button = findViewById<Button>(resId)
+                                button.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                                button.isClickable = false
+                            }
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Bad Guess!", Toast.LENGTH_SHORT).show()
